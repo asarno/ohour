@@ -1,16 +1,21 @@
-import {Students, sequelize} from './server/model/studentmodel';
+'use strict';
+const studentModel = require('../model/studentmodel');
 const bodyParser = require('body-parser');
 // const jsonParser = bodyParser.json();
-
-const add = (req, res) => {
-	let obj = {
-		name: "Anthony",
-		email: "asarno",
-		password: "yup"
-	}
-	sequelize.sync({force: true}).then(() => {
-		return Students.create(obj);
-	})
+let obj = {
+	name: 'sooeunglee',
+	email: 'dfd',
+	password: '1234'
 }
+const add = (req, res, next) => {		
+		studentModel.sequelize.sync({ force: true }).then(() => {
+			// studentModel.student.create(obj);
+			return studentModel.Students.create(obj)
+		});
+	}
 
-export default
+module.exports = add;
+
+//sequelize isn't defined
+//headers aren't set
+
