@@ -1,19 +1,19 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('student', 'sooeunglee', '1234', {
-	host: 'localhost',
-	dialect: 'postgres'
-});
+	const sequelize = new Sequelize('student', 'anthonysarno1', 'kobe', {
+		host: 'localhost',
+		dialect: 'postgres'
+	});
 
-let Students = sequelize.define('students', {
-	_id: {
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		autoIncrement: true
-	},
-	name: Sequelize.STRING,
-	email: Sequelize.STRING,
-	password: Sequelize.STRING,
-});
+	var Students = sequelize.define('students', {
+		_id: {
+			type: Sequelize.INTEGER,
+			primaryKey: true,
+			autoIncrement: true
+		},
+		name: Sequelize.STRING,
+		email: Sequelize.STRING,
+		password: Sequelize.STRING,
+	})
 
-export {Students, sequelize}
+module.exports = { sequelize, Students };	
